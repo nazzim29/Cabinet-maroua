@@ -1,0 +1,10 @@
+<br />
+<font size='1'><table class='xdebug-error xe-uncaught-exception' dir='ltr' border='1' cellspacing='0' cellpadding='1'>
+<tr><th align='left' bgcolor='#f57900' colspan="5"><span style='background-color: #cc0000; color: #fce94f; font-size: x-large;'>( ! )</span> Fatal error: Uncaught RuntimeException: The file could not be read in C:\Users\Nazim\Desktop\Cabinet-maroua\vendor\klein\klein\src\Klein\Klein.php on line <i>954</i></th></tr>
+<tr><th align='left' bgcolor='#f57900' colspan="5"><span style='background-color: #cc0000; color: #fce94f; font-size: x-large;'>( ! )</span> Klein\Exceptions\UnhandledException: The file could not be read in C:\Users\Nazim\Desktop\Cabinet-maroua\vendor\klein\klein\src\Klein\Klein.php on line <i>954</i></th></tr>
+<tr><th align='left' bgcolor='#e9b96e' colspan='5'>Call Stack</th></tr>
+<tr><th align='center' bgcolor='#eeeeec'>#</th><th align='left' bgcolor='#eeeeec'>Time</th><th align='left' bgcolor='#eeeeec'>Memory</th><th align='left' bgcolor='#eeeeec'>Function</th><th align='left' bgcolor='#eeeeec'>Location</th></tr>
+<tr><td bgcolor='#eeeeec' align='center'>1</td><td bgcolor='#eeeeec' align='center'>0.0010</td><td bgcolor='#eeeeec' align='right'>362888</td><td bgcolor='#eeeeec'>{main}(  )</td><td title='C:\Users\Nazim\Desktop\Cabinet-maroua\index.php' bgcolor='#eeeeec'>...\index.php<b>:</b>0</td></tr>
+<tr><td bgcolor='#eeeeec' align='center'>2</td><td bgcolor='#eeeeec' align='center'>0.0055</td><td bgcolor='#eeeeec' align='right'>379784</td><td bgcolor='#eeeeec'>Klein\Klein->dispatch(  )</td><td title='C:\Users\Nazim\Desktop\Cabinet-maroua\index.php' bgcolor='#eeeeec'>...\index.php<b>:</b>15</td></tr>
+<tr><td bgcolor='#eeeeec' align='center'>3</td><td bgcolor='#eeeeec' align='center'>0.0443</td><td bgcolor='#eeeeec' align='right'>417768</td><td bgcolor='#eeeeec'>Klein\Klein->error(  )</td><td title='C:\Users\Nazim\Desktop\Cabinet-maroua\vendor\klein\klein\src\Klein\Klein.php' bgcolor='#eeeeec'>...\Klein.php<b>:</b>645</td></tr>
+</table></font>
