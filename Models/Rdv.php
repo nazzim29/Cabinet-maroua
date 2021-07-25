@@ -25,7 +25,9 @@ class RendezVous extends Model
         $this->ID_utilisateur = $result->ID_utilisateur;
         $this->ID_patient = $result->ID_patient;
         $this->valider_medecin = $result->valider_medecin;
-        $this->patient = new Patient($this->ID_patient);
+        $this->patient = new Users($this->ID_patient);
+        $this->patient->read();
+        $this->patient = Patient::fromUser($this->patient);
         $this->patient->read();
         return true;
     }

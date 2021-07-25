@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-07-24 20:46:07
+/* Smarty version 3.1.39, created on 2021-07-25 16:35:01
   from 'C:\Users\Nazim\Desktop\Cabinet-maroua\Views\patient.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60fc7c0f3dc7d6_42041056',
+  'unifunc' => 'content_60fd92b56e9198_20808249',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7647d6c3dc3340c0c9fa09386426d87940dc8aee' => 
     array (
       0 => 'C:\\Users\\Nazim\\Desktop\\Cabinet-maroua\\Views\\patient.tpl',
-      1 => 1627143275,
+      1 => 1627230899,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./components/navbar.tpl' => 1,
   ),
 ),false)) {
-function content_60fc7c0f3dc7d6_42041056 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60fd92b56e9198_20808249 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -122,8 +122,9 @@ $_smarty_tpl->tpl_vars['patient']->do_else = false;
 ?>
                                             <tr>
                                                 <td class="text-center">
-                                                    <?php echo $_smarty_tpl->tpl_vars['patient']->value->nom;?>
-
+                                                    <a href="\patient/<?php echo $_smarty_tpl->tpl_vars['patient']->value->ID_patient;?>
+"><?php echo $_smarty_tpl->tpl_vars['patient']->value->nom;?>
+</a>
                                                 </td>
                                                 <td class="text-center">
                                                     <?php echo $_smarty_tpl->tpl_vars['patient']->value->prenom;?>

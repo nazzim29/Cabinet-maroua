@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-07-25 14:55:51
+/* Smarty version 3.1.39, created on 2021-07-25 16:35:04
   from 'C:\Users\Nazim\Desktop\Cabinet-maroua\Views\profilpatient.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60fd7b77869d77_67360511',
+  'unifunc' => 'content_60fd92b81c7056_51837065',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c24210bb8367d2431d7f6361f058e884ee652927' => 
     array (
       0 => 'C:\\Users\\Nazim\\Desktop\\Cabinet-maroua\\Views\\profilpatient.tpl',
-      1 => 1627224945,
+      1 => 1627226139,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./components/navbar.tpl' => 1,
   ),
 ),false)) {
-function content_60fd7b77869d77_67360511 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60fd92b81c7056_51837065 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 <style>

@@ -76,7 +76,7 @@
                                         {foreach from=$patients item=patient}
                                             <tr>
                                                 <td class="text-center">
-                                                    {$patient->nom}
+                                                    <a href="\patient/{$patient->ID_patient}">{$patient->nom}</a>
                                                 </td>
                                                 <td class="text-center">
                                                     {$patient->prenom}

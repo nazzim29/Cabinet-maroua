@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-07-24 15:25:16
+/* Smarty version 3.1.39, created on 2021-07-25 16:42:28
   from 'C:\Users\Nazim\Desktop\Cabinet-maroua\Views\rdv.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60fc30dcec9f37_58305963',
+  'unifunc' => 'content_60fd94749638d3_61825135',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '826d5928fddc212b842b79b83a92f2787f2ff7e5' => 
     array (
       0 => 'C:\\Users\\Nazim\\Desktop\\Cabinet-maroua\\Views\\rdv.tpl',
-      1 => 1627140259,
+      1 => 1627231338,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./components/navbar.tpl' => 1,
   ),
 ),false)) {
-function content_60fc30dcec9f37_58305963 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60fd94749638d3_61825135 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -128,7 +128,7 @@ $_smarty_tpl->tpl_vars['r']->do_else = false;
                                                     data-targget="<?php echo $_smarty_tpl->tpl_vars['r']->value->ID_rendezvous;?>
 "></span>
                                             <?php }?>
-                                            <?php if ($_smarty_tpl->tpl_vars['r']->value->valider_medecin == false && $_smarty_tpl->tpl_vars['_SESSION']->value['currentUser']->role == 'medecin') {?>
+                                            <?php if (intval($_smarty_tpl->tpl_vars['r']->value->valider_medecin) == 0 && $_smarty_tpl->tpl_vars['_SESSION']->value['currentUser']->role == 'medecin') {?>
                                                 <a class="fas fa-trash-alt tm-trash-icon"
                                                     href="\rendez-vous/modifier/<?php echo $_smarty_tpl->tpl_vars['r']->value->ID_rendezvous;?>
 "> edit</a>

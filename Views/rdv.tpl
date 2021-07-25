@@ -76,7 +76,7 @@
                                                 <span class="delete fas fa-trash-alt tm-trash-icon"
                                                     data-targget="{$r->ID_rendezvous}"></span>
                                             {/if}
-                                            {if $r->valider_medecin == false and $_SESSION['currentUser']->role == 'medecin'}
+                                            {if intval($r->valider_medecin) == 0 and $_SESSION['currentUser']->role == 'medecin'}
                                                 <a class="fas fa-trash-alt tm-trash-icon"
                                                     href="\rendez-vous/modifier/{$r->ID_rendezvous}"> edit</a>
                                                 <a class="fas fa-trash-alt tm-trash-icon"

@@ -13,6 +13,7 @@ require_once __DIR__."/Models/Patient.php";
 require_once __DIR__."/Models/Rdv.php";
 require_once __DIR__."/Models/Medicament.php";
 require_once __DIR__."/Models/Prescri.php";
+require_once __DIR__."/libs/Mail.php";
 session_start();
 $klein = new \Klein\Klein();
 
