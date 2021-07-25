@@ -1,6 +1,7 @@
 <?php
 
 use Controllers\LoginController;
+
 $this->GET('/?',function($request,$response,$service,$app){
     LoginController::getHome($request,$response,$service,$app);
 });

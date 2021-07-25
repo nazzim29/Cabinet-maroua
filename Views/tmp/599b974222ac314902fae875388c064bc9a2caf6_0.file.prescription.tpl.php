@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-07-24 21:31:36
+/* Smarty version 3.1.39, created on 2021-07-24 23:07:22
   from 'C:\Users\Nazim\Desktop\Cabinet-maroua\Views\prescription.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_60fc86b8d5fac6_57359814',
+  'unifunc' => 'content_60fc9d2a6185f2_40934258',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '599b974222ac314902fae875388c064bc9a2caf6' => 
     array (
       0 => 'C:\\Users\\Nazim\\Desktop\\Cabinet-maroua\\Views\\prescription.tpl',
-      1 => 1627162294,
+      1 => 1627162443,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:./components/navbar.tpl' => 1,
   ),
 ),false)) {
-function content_60fc86b8d5fac6_57359814 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60fc9d2a6185f2_40934258 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\Users\\Nazim\\Desktop\\Cabinet-maroua\\vendor\\smarty\\smarty\\libs\\plugins\\modifier.capitalize.php','function'=>'smarty_modifier_capitalize',),));
 ?>
 <!DOCTYPE html>
@@ -219,8 +219,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                         let xhr = new XMLHttpRequest()
                         xhr.open('delete','\\prescription/'+id)
                         xhr.onload=()=>{
-                            //window.location.reload()
-                            console.log(xhr.response)
+                            window.location.reload()
                         }
                         xhr.send()
                     })

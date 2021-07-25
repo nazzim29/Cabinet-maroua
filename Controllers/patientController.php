@@ -3,12 +3,17 @@
 namespace Controllers;
 
 use Models\Patient;
+use Models\Prescription;
+use Models\RendezVous;
 use Models\Users;
 use Views\View;
+use Mpdf\Mpdf;
+use Mpdf\HTMLParserMode;
 
 class PatientController
 {
-    static function create($req, $res, $service, $app){
+    static function create($req, $res, $service, $app)
+    {
         $service->validateParam('adresse_mail', 'please enter a valid email')->notNull()->isEmail();
         $service->validateParam('mot_de_passe', 'please enter a valid password')->notNull()->isLen(3, 32);
         $service->validateParam('nom', 'nom inchoerant')->notNull()->isAlpha();
@@ -39,7 +44,8 @@ class PatientController
             $res->redirect('patient');
         }
     }
-    static function read($req, $res, $service, $app){
+    static function read($req, $res, $service, $app)
+    {
         $patient = new Patient();
         if ($req->id) {
             $service->validate($req->id, 'id invalid')->isInt();
@@ -61,7 +67,8 @@ class PatientController
             ));
         }
     }
-    static function update($req, $res, $service, $app){
+    static function update($req, $res, $service, $app)
+    {
         $service->validateParam('adresse_mail', 'please enter a valid email')->notNull()->isEmail();
         if ($req->paramsPost()->get('mot_de_passe')) $service->validateParam('mot_de_passe')->isLen(3, 32);
         $service->validateParam('nom')->isAlpha();
@@ -89,7 +96,7 @@ class PatientController
                 } else {
                     $service->flash('erreur lors de la modification', 'error');
                 }
-            }else {
+            } else {
                 $service->flash('erreur lors de la modification', 'error');
             }
             $res->redirect("/patient");
@@ -97,7 +104,8 @@ class PatientController
             View::display('not-found');
         }
     }
-    static function delete($req, $res, $service, $app){
+    static function delete($req, $res, $service, $app)
+    {
         $service->validate($req->id, 'id invalid')->isInt();
         $patient = new Users($req->id);
         if ($patient->delete()) {
@@ -106,10 +114,12 @@ class PatientController
             $service->flash('erreur lors de la supression du patient', 'error');
         }
     }
-    static function getCreate($request, $response, $service, $app){
+    static function getCreate($request, $response, $service, $app)
+    {
         return View::display('creerpatient');
     }
-    static function getEdit($req, $res, $service, $app){
+    static function getEdit($req, $res, $service, $app)
+    {
         $patient = new Users($req->id);
         if ($patient->read()) {
             $patient = Patient::fromUser($patient);
@@ -121,5 +131,101 @@ class PatientController
         }
         $service->flash('patient introuvable', 'error');
         $res->redirect('/patient');
+    }
+    static function profil($req, $res, $service, $app)
+    {
+        $patient = new Users($req->id);
+        $patient->read();
+        $patient = Patient::fromUser($patient);
+        $patient->read();
+        return View::display('profilpatient', array(
+            'patient' => $patient,
+            'prescriptions' => Prescription::getAll(array('ID_patient' => $req->id)),
+            'rdvs' => RendezVous::getAll(array('ID_patient' => $req->id))
+        ));
+    }
+    static function rapport($req, $res, $service, $app)
+    {
+        $patient = new Patient($req->id);
+        $patient->read();
+        $rdvs = RendezVous::getAll(array('ID_patient' => $req->id));
+        $pdf = new  Mpdf();
+        $html = '
+            <html lang="en">
+            <style>
+                button {
+                    border-radius: 20px;
+                    border: 1px solid #148f8a;
+                    background-color: #148f8a;
+                    color: #FFFFFF;
+                    font-size: 12px;
+                    font-weight: bold;
+                    padding: 12px 45px;
+                    letter-spacing: 1px;
+                    text-transform: uppercase;
+                    transition: transform 80ms ease-in;
+                }
+            </style>
+            
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <meta http-equiv="X-UA-Compatible" content="ie=edge">
+                <title>Rapport de suivi '.$patient->nom.' '.$patient->prenom.'</title>
+                <!--
+            
+            
+                -->
+                <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600">
+                <!-- https://fonts.google.com/specimen/Open+Sans -->
+                <link rel="stylesheet" href="\public/css/fontawesome.min.css">
+                <!-- https://fontawesome.com/ -->
+                <!-- https://getbootstrap.com/ -->
+                <link rel="stylesheet" href="\public/css/tooplate.css">
+            </head>
+            
+            <body id="reportsPage" style="background-image:none;">
+                <div class="" id="home">
+                    <div class="container">
+                        <div class="row tm-content-row tm-mt-big">
+                            <div class="tm-col tm-col-medium">
+                                <div class="bg-white tm-block">
+                                    <h2 class="tm-block-title">Rapport de suivi</h2>
+                                    <table class="table table-hover table-striped tm-table-striped-even mt-3">
+                                        <thead>
+                                            <tr class="tm-bg-gray">
+            
+                                                <th scope="col">Date </th>
+                                                <th scope="col" class="text-center">Observation </th>
+            
+                                            </tr>
+                                        </thead>
+                                        <tbody>';
+
+
+
+            
+        foreach ($rdvs as $rdv) {
+            $html .= "<tr><td>" . $rdv->date->format('d/m/Y') . "</td><td>";
+            if(strlen($rdv->observation)!=0) $html .= $rdv->observation;
+            else $html.= 'Aucune observation';
+            $html.= "</td></tr>";
+        }
+        $html.="</tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            
+            
+                </div>
+            
+            </body>
+            
+            </html>
+        ";
+        $pdf->WriteHTML($html,0);
+        $pdf->Output();
     }
 }
